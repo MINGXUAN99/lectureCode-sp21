@@ -2,6 +2,15 @@ package lec8_inheritance1;
 
 /** An SLList is a list of integers, which hides the terrible truth
    * of the nakedness within. */
+
+/** Here we use implements to make sure this is a class of List61b interface.*/
+
+/** Overriding & Overloading
+ * Overriding happens when the 'subclass' rewrite a method in 'superclass'.
+ * Subclass must override all methods.
+ * '@Override' is not required but recommended.
+ * Overloading happens when two methods use the same name but receive different parameters.
+ * */
 public class SLList<Blorp> implements List61B<Blorp>  {
 	private class Node {
 		public Blorp item;
@@ -33,6 +42,7 @@ public class SLList<Blorp> implements List61B<Blorp>  {
 	  *  the list. If position is greater than the
 	  *  size of the list, inserts at the end instead.
 	  */
+	 @Override
 	 public void insert(Blorp item, int position) {
 		 Node p = sentinel;
 		 while (position > 1 && p.next != null) {
@@ -44,12 +54,14 @@ public class SLList<Blorp> implements List61B<Blorp>  {
 	 }
 
  	/** Adds x to the front of the list. */
+	@Override
  	public void addFirst(Blorp x) {
  		sentinel.next = new Node(x, sentinel.next);
  		size = size + 1;
  	}
 
  	/** Adds x to the end of the list. */
+	@Override
  	public void addLast(Blorp x) {
  		size = size + 1; 		
 
@@ -64,6 +76,7 @@ public class SLList<Blorp> implements List61B<Blorp>  {
  	}
 
 	 /** Returns the first item in the list. */
+	 @Override
 	 public Blorp getFirst() {
 		 return sentinel.next.item;
 	 }
@@ -80,12 +93,14 @@ public class SLList<Blorp> implements List61B<Blorp>  {
 	 }
 
 	 /** Returns last item */
+	 @Override
 	 public Blorp getLast() {
 		 Node back = getLastNode();
 		 return back.item;
 	 }
 
 	 /** Returns the ith item in the list. */
+	 @Override
  	public Blorp get(int i) {
 		return get(i, sentinel.next);
 	}
@@ -98,11 +113,13 @@ public class SLList<Blorp> implements List61B<Blorp>  {
 	}
  	
  	/** Returns the size of the list. */
+	@Override
  	public int size() {
  		return size;
  	}
 
 	 /** Deletes and returns last item. */
+	 @Override
 	 public Blorp removeLast() {
 		 Node back = getLastNode();
 		 if (back == sentinel) {
@@ -118,6 +135,10 @@ public class SLList<Blorp> implements List61B<Blorp>  {
 		 return back.item;
 	 }
 
+	 /** It turns out that the default print() method is inefficient for SLList
+	  * because of the get(i) method.
+	  * We could still override it.
+	  * This time '@Override' is required.*/
 	 @Override
 	public void print() {
 	 	System.out.println("THIS IS THE OVERRIDDEN VERSION.");
