@@ -1,9 +1,11 @@
 package lec6_lists3;
 
 /** An SLList is a list of integers, which hides the terrible truth
-   * of the nakedness within. */
+   * of the nakedness within.
+ * We want a generic SLList. */
 public class SLList<LochNess> {	
 	private class StuffNode {
+		/* LochNess is a general type name. */
 		public LochNess item;
 		public StuffNode next;
 
