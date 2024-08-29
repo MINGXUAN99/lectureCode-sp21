@@ -1,6 +1,8 @@
 package lec9_inheritance2;
 
 /* SLList, but with additional rotateRight operation. */
+/* If we want one class to be a hyponym of another class,
+* instead of am interface, use 'extends'.*/
 public class RotatingSLList<Item> extends SLList<Item> {
 
 	/** To do: Implement RotatingSLList such that code compiles and outputs correct result. */
@@ -18,6 +20,7 @@ public class RotatingSLList<Item> extends SLList<Item> {
 		rsl.addLast(11);
 		rsl.addLast(12);
 		rsl.addLast(13);
+		rsl.print();
 
 		/* Should be: [13, 10, 11, 12] */
 		rsl.rotateRight();
